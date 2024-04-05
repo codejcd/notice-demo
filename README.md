@@ -1,24 +1,44 @@
 # 공지사항 REST API
 공지사항 등록, 수정, 삭제, 조회 API
-
+<br>
 # 개발 환경
 - SpringBoot 2.7.8
-- H2 2.1.214
+- H2 2.1.212
 - Gradle
 - JPA 2.7.7 / Hibernate 
 - QueryDsl 5.0.0
 
 # 실행 방법
-1. Download
-2. QueryDSL Q객체 생성
+### 1. Project Download & Import
+- Download & import 진행.
+### 2. QueryDSL Q객체 생성
+- Gradle IntelliJ
+   - Gradle → Tasks → build → clean
 
-- Gradle → Tasks → build → clean
+   - Gradle → Tasks → other → compileQueryDsl
 
-- Gradle → Tasks → other → compileQueryDsl
+   - build → generated → querydsl 에 Q 객체 생성됐으면 정상.
+  
+- Gradle 콘솔
+   - ./gradlew clean compileQuerydsl
 
-- build → generated → querydsl 에 Q 객체 생성됐으면 정상   
+### 3. h2 설치
+- 다운로드 및 설치
+     - https://www.h2database.com
+     - 스프링부트 2.x 는 1.4.200 버전 다운로드.
+     - 스프링부트 3.x 는 2.1.214 버전 이상.
+- 권한 부여 : chmod 755 h2.sh
+- 데이터베이스 파일 생성 방법
+     - jdbc:h2:~/querydsl (최소 한번)
+     -  \~/querydsl.mv.db 파일 생성 됐으면
+       jdbc:h2:tcp://localhost/~/querydsl 로 접속
 
-3. DemoAppliaction > Run
+- Windows 기준
+     - 시작프로그램 or 찾기 > H2 Console 실행.
+     - 연결 (연결시험 X)
+       ![image](https://github.com/codejcd/notice-demo/assets/14977984/0c4719f9-25ca-41af-a094-f842b9b5faf0)
+
+### 4. DemoAppliaction > Run
 
 # 설명
 1. REST API
